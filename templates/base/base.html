@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Lista Amiga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- IMPORTACIONES PRINCIPALES -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> {% block head %} {% endblock head %}
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i/Montserrat:300,400,500,700" rel="stylesheet" />
+
+    <!-- Iconos -->
+    <link href="https://unpkg.com/ionicons@4.5.9-1/dist/css/ionicons.min.css" rel="stylesheet" />
+
+    <!-- JQuery + Jquery validate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet" />
+
+
+</head>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="{% url 'listarCompras:index' %}">Listas Amiga</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'listarCompras:index' %}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Listas Amigas</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'listarCompras:listar_listas'%}">Mis Listas</a>
+                        <a class="dropdown-item" href="{% url 'listarCompras:crear_listas'%}">Nueva Lista</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Perfil</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Mi Perfil</a>
+                        <a class="dropdown-item" href="{% url 'usuario:login'%}">Iniciar Sesion</a>
+                        <a class="dropdown-item" href="{% url 'usuario:registrar'%}">Registrarse</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tiendas</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'tienda:listar_tienda'%}">Tiendas</a>
+                        <a class="dropdown-item" href="{% url 'tienda:crear_tienda'%}">Agregar Tienda</a>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav>
+    </div>
+
+
+    <div class="collapse navbar-collapse " id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+
+            </li>
+            <li class="nav-kksitem">
+
+            </li>
+            <li class="nav-item dropdown"></li>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Mi Perfil</a>
+            <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                <a class="dropdown-item" href="#">Iniciar Sesion</a>
+                <a class="dropdown-item" href="#">Registrarse</a>
+            </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="container">
+        {% block content %} {% endblock content%}
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/validadores.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

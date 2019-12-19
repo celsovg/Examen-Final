@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %} {% block content %}
+
+<table class="table table-bordered">
+
+    <thead>
+        <td> N° </td>
+        <td> Nombre </td>
+        <td> Usuario </td>
+        <td> N° de productos </td>
+    </thead>
+    <tbody>
+        {% if object_list %} {% for solicitud in objects_list %}
+        <tr>
+            <td> {{ solicitud.id }} </td>
+            <td> {{ solicitud.listaDeCompras.nombre }} </td>
+            <td> {{ solicitud.perfilUsuario.nombre }} {{ solicitud.perfilUsuario.apellido }}</td>
+            <td> {{ solicitud.listaDeCompras.cantidad_productos }} </td>
+
+            <td>
+                <a class="btn btn-primary" href="{% url 'listarCompras:editar' producto.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'listarCompras:eliminar' producto.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %} {% else %}
+        <h1> No hay registro de productos </h1>
+        {% endif %}
+    </tbody>
+
+</table>
+{% endblock %}

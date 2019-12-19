@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %} {% block content %}
+<br>
+<h1>Aqui puedes crear tus listas!</h1>
+<h3>Ingrese los datos solicitados: </h3>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <h5>Datos de la lista:</h5>
+    {{ form.as_p }}
+    <h5>Datos de Usuario:</h5>
+    {{ form2.as_p}}
+    <button type="sumbit">Guardar</button>
+</form>
+{% endblock %}

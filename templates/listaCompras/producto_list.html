@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %} {% block content %}
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Costo real</th>
+            <th scope="col">Costo presupuestado</th>
+            <th scope="col">Tienda</th>
+            <th scope="col">Notas</th>
+            <th scope="col">Comprado</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            {% if productos %} {% for producto in productos%}
+
+            <td> {{producto.id}} </td>
+            <td> {{producto.nombre}} </td>
+            <td> {{producto.costo_real}} </td>
+            <td> {{producto.costo_presupuestado}} </td>
+            <td> {{producto.tienda.nombre}} </td>
+            <td> {{producto.notas}} </td>
+            <td> {{producto.comprado}} </td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'listarCompras:editar_producto' producto.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'listarCompras:eliminar_producto' producto.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %} {% else %}
+        <br>
+        <h1> Uppss...No hay productos registrados... </h1>
+        <a href="{% url 'listarCompras:crear_producto'%}" style="font-size: 30px;"> ¿Desea ingresar un producto? Haga click aqui.</a> {% endif %}
+    </tbody>
+
+</table>
+<div style="text-align: right;">
+    <br>
+    <a class="btn btn-primary btn-lg" style="align-items: right;" href="{% url 'listarCompras:listar_listas'%}">Volver</a>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %} {% block content %}
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">Nombre </th>
+            <th scope="col">Sucural</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Region</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            {% if tiendas %} {% for tienda in tiendas %}
+
+            <td> {{tienda.id}} </td>
+            <td> {{tienda.nombre}} </td>
+            <td> {{tienda.nombre_sucursal}}</td>
+            <td> {{tienda.direccion}} </td>
+            <td> {{tienda.ciudad}} </td>
+            <td> {{tienda.region}} </td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'tienda:editar_tienda' tienda.id   %}">Editar</a>
+                <a class="btn btn-danger" href="{%  url 'tienda:eliminar_tienda' tienda.id %}">Eliminar</a>
+            </td>
+
+        </tr>
+        {% endfor %} {% else %}
+        <h1> Uppss...No hay tiendas registradas... </h1>
+        <a href="{% url 'tienda:crear_tienda'%}" style="font-size: 30px;"> ¿Desea crear una tienda? Haga click aqui.</a> {% endif %}
+
+
+    </tbody>
+</table>
+
+
+
+
+
+{% endblock %}

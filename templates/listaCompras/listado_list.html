@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %} {% block content %}
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">Nombre </th>
+            <th scope="col">Creador</th>
+            <th scope="col">Cantidad de productos</th>
+            <th scope="col">Comprados</th>
+            <th scope="col">Costo presupuestado</th>
+            <th scope="col">Costo total</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            {% if listas %} {% for lista in listas %}
+
+            <td> <a class="btn btn-warning" href="{% url 'listarCompras:listar_producto'%}">{{lista.id}}</a> </td>
+            <td> {{lista.nombre_lista}} </td>
+            <td> {{lista.creador.nombre}} {{lista.creador.apellido}} </td>
+            <td> {{lista.cantidad_productos}} </td>
+            <td> {{lista.cantidad_comprados}}</td>
+            <td> {{lista.presupuesto_total}}</td>
+            <td> {{lista.total_final}}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'listarCompras:editar_listas' lista.id   %}">Editar</a>
+                <a class="btn btn-primary" href="{% url 'listarCompras:crear_producto'%}">Agregar</a>
+                <a class="btn btn-danger" href="{% url 'listarCompras:eliminar_listas' lista.id %}">Eliminar</a>
+
+            </td>
+
+        </tr>
+        {% endfor %} {% else %}
+        <h1> Uppss...Usted no tiene ninguna Lista Amiga! </h1>
+        <a href="{% url 'listarCompras:crear_listas'%}" style="font-size: 30px;"> ¿Desea crear su primera Lista Amiga? Haga click aqui.</a> {% endif %}
+
+
+    </tbody>
+</table>
+
+{% endblock %}

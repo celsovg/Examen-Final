@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %} {% block header %} {% endblock %} {% block content %}
+<br>
+<div class="jumbotron">
+    <h1 class="display-3" style="text-align: center;">Bienvenidos a Lista Amiga</h1>
+    <p class="lead" style="text-align: center;">Nuestro interes es facilitar sus compras y ayudarlos a ordenar sus gatos.</p>
+    <hr class="my-4">
+    <p class="lead" style="text-align: center;">
+        <a class="btn btn-primary btn-lg" href="{% url 'listarCompras:listar_listas' %}" role="button">Comencemos</a>
+    </p>
+</div>
+
+<div>
+    <div class="card text-white bg-primary mb-3">
+        <h3 class="card-header">¿Le resulta dificil ordenar sus compras?</h3>
+        <div class="card-body">
+            <h5 class="card-title">Nosotros te podemos ayudar!</h5>
+        </div>
+        <img style="height: 200px; width: 100%; display: block;" src="https://images2.mega.cl/meganoticias/2019/10/21/_279829_1_5dadca88abbe0_950x535.jpg" alt="Card image">
+        <div class="card-body">
+            <p class="card-text">A traves de nuestro servicio usted puede crear listas con los productos que desea, asignarales un precio real y uno presupuestado por usted, de este modo, usted puede llevar el control de sus gatos.</p>
+        </div>
+
+        <div class="card-body">
+            <a href="#" class="card-link text-success" style="font-size: 20px;">Haga click aqui para comenzar</a>
+        </div>
+
+    </div>
+    <div class="card mb-3">
+        <h3 class="card-header"> ¿No recuerda los productos que necesita ni donde comprarlos?</h3>
+        <div class="card-body">
+            <h5 class="card-title"> Aqui tenemos la solucion</h5>
+        </div>
+        <img style="height: 200px; width: 100%; display: block;" src="https://www.cocinayvino.com/wp-content/uploads/2017/02/49247557_l.jpg" alt="Card image">
+        <div class="card-body">
+            <p class="card-text">Cree listas, añada sus productos, gestione sus gastos. Lista Amiga es la solucion a tus compras!</p>
+        </div>
+        <div class="card-body">
+            <a href="#" class="card-link text-success" style="font-size: 20px;">Haga click aqui para comenzar</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
